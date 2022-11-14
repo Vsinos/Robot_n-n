@@ -11,7 +11,7 @@ while True:
         print("Please type a positive integer. ")
 print(f"\nThe robot will move in a scale of: {dim_n} x  {dim_n} (0...{dim_n-1}, 0...,{dim_n-1}). Starting position is: (0,0)")
 #Variables
-command = "q"
+command = "s"
 x = 0
 y = 0
 new_movement_x = 0
@@ -22,20 +22,18 @@ while command != " ":
     if not command:
         continue
     movement = command[0].lower()
-    
     #Movement-Defensive Programming
     if movement not in ["u", "d", "l", "r"]:
-        print("\nERROR!! It's outside the boundaries of the area!Try again.")
-        
+        continue
     number = int(command[1:])
     if movement == "u":
-        new_movement_x = (x - number)
+        new_movement_x = x - number
     elif movement == "d":
-        new_movement_x = (x + number)
+        new_movement_x = x + number
     elif movement == "l":
-        new_movement_y = (y - number)
+        new_movement_y = y - number
     elif movement == "r":
-        new_movement_y = (y + number)
+        new_movement_y = y + number
     x = new_movement_x
     y = new_movement_y
     #OUT OF LIMITS COMMANDS
